@@ -70,6 +70,10 @@ export default class TransactionBuilder {
         if(!utils.isInteger(amount) || amount <= 0)
             return callback('Invalid amount provided');
 
+        // If we get the id token, we convert to string
+        if(utils.isInteger(tokenID))
+            tokenID = tokenID.toString();
+        
         if(!utils.isString(tokenID) || !tokenID.length)
             return callback('Invalid token ID provided');
 
